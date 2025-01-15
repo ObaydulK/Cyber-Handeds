@@ -29,7 +29,7 @@
                         <p class="text-xs sm:text-sm text-gray-800 dark:text-neutral-200">January 18, 2023</p>
                     </div>
 
-                    <p class="text-lg text-gray-800 dark:text-neutral-200">At preline, our mission has always been
+                    <p class="text-lg text-gray-800 dark:text-neutral-200">At Cyber-Handed, our mission has always been
                         focused on bringing openness and transparency to the design process. We've always believed that
                         by providing a space where designers can share ongoing work not only empowers them to make
                         better products, it also helps them grow.</p>
@@ -63,7 +63,7 @@
                         </span>
                     </div>
 
-                    <p class="text-lg text-gray-800 dark:text-neutral-200">As we've grown, we've seen how Preline has
+                    <p class="text-lg text-gray-800 dark:text-neutral-200">As we've grown, we've seen how Cyber-Handed has
                         helped companies such as Spotify, Microsoft, Airbnb, Facebook, and Intercom bring their
                         designers closer together to create amazing things. We've also learned that when the culture of
                         sharing is brought in earlier, the better teams adapt and communicate with one another.</p>
@@ -71,13 +71,13 @@
                     <p class="text-lg text-gray-800 dark:text-neutral-200">That's why we are excited to share that we
                         now have a <a
                             class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                            href="#">free version of Preline</a>, which will allow individual designers, startups and
+                            href="#">free version of Cyber-Handed</a>, which will allow individual designers, startups and
                         other small teams a chance to create a culture of openness early on.</p>
 
                     <blockquote class="text-center p-4 sm:px-7">
                         <p
                             class="text-xl font-medium text-gray-800 lg:text-2xl lg:leading-normal xl:text-2xl xl:leading-normal dark:text-neutral-200">
-                            To say that switching to Preline has been life-changing is an understatement. My business
+                            To say that switching to Cyber-Handed has been life-changing is an understatement. My business
                             has tripled and I got my life back.
                         </p>
                         <p class="mt-5 text-gray-800 dark:text-neutral-200">
@@ -99,18 +99,18 @@
                         </h3>
 
                         <p class="text-lg text-gray-800 dark:text-neutral-200">We know the power of sharing is real, and
-                            we want to create an opportunity for everyone to try Preline and explore how transformative
+                            we want to create an opportunity for everyone to try Cyber-Handed and explore how transformative
                             open communication can be. Now you can have a team of one or two designers and unlimited
                             spectators (think PMs, management, marketing, etc.) share work and explore the design
                             process earlier.</p>
                     </div>
 
                     <ul class="list-disc list-outside space-y-5 ps-5 text-lg text-gray-800 dark:text-neutral-200">
-                        <li class="ps-2">Preline allows us to collaborate in real time and is a really great way for
+                        <li class="ps-2">Cyber-Handed allows us to collaborate in real time and is a really great way for
                             leadership on the team to stay up-to-date with what everybody is working on," <a
                                 class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
                                 href="#">said</a> Stewart Scott-Curran, Intercom's Director of Brand Design.</li>
-                        <li class="ps-2">Preline opened a new way of sharing. It's a persistent way for everyone to see
+                        <li class="ps-2">Cyber-Handed opened a new way of sharing. It's a persistent way for everyone to see
                             and absorb each other's work," said David Scott, Creative Director at <a
                                 class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
                                 href="#">Eventbrite</a>.</li>
@@ -119,7 +119,7 @@
                     <p class="text-lg text-gray-800 dark:text-neutral-200">Small teams and individual designers need a
                         space where they can watch the design process unfold, both for themselves and for the people
                         they work with – no matter if it's a fellow designer, product manager, developer or client.
-                        Preline allows you to invite more people into the process, creating a central place for
+                        Cyber-Handed allows you to invite more people into the process, creating a central place for
                         conversation around design. As those teams grow, transparency and collaboration becomes
                         integrated in how they communicate and work together.</p>
 
