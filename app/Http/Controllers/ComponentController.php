@@ -19,4 +19,12 @@ class ComponentController extends Controller
     public function ourstudentlist(){
         return view("component.internstudentlist");
     }
+
+    // -------------------------student form-----------------------------------
+     public function Interstudentform(){
+        return view("component.internstudentfrom");
+     }
+
+
+
 }

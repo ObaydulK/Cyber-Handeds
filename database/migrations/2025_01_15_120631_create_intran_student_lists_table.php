@@ -11,8 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('components', function (Blueprint $table) {
+        Schema::create('intran_student_lists', function (Blueprint $table) {
             $table->id();
+            $table->string('image'); 
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('gender');
+            $table->string('bio');
+            $table->string('create_at');
             $table->timestamps();
         });
     }
@@ -22,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('components');
+        Schema::dropIfExists('intran_student_lists');
     }
 };
