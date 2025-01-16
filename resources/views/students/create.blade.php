@@ -10,7 +10,9 @@
                 Manage your name, password and account settings.
             </p>
         </div>
-        <form action="{{ route('students.store') }}" method="POST">
+ 
+
+        <form action="{{ route('students.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <!-- Grid -->
             <div class="grid sm:grid-cols-12 gap-2 sm:gap-6">
@@ -36,7 +38,8 @@
                                         <polyline points="17 8 12 3 7 8" />
                                         <line x1="12" x2="12" y1="3" y2="15" />
                                     </svg>
-                                    Upload photo
+                                    <input type="file" name="image" id="image" placeholder="Upload photo">
+
                                 </button>
                             </div>
                         </div>
@@ -54,9 +57,9 @@
 
                 <div class="sm:col-span-9">
                     <div class="sm:flex">
-                        <input id="af-account-full-name" type="text" name="name" required
+                        <input id="af-account-full-name" type="text" name="name" value="{{old('name')}}" required
                             class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                            placeholder="Maria">
+                            placeholder="Enter your Full Name">
                     </div>
                 </div>
                 <!-- End Col -->
@@ -70,9 +73,9 @@
                 <!-- End Col -->
 
                 <div class="sm:col-span-9">
-                    <input id="af-account-email" type="email" name="email" required
+                    <input id="af-account-email" type="email" name="email" required value="{{old('email')}}"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                        placeholder="maria@site.com">
+                        placeholder="Enter you Email maria@site.com">
                 </div>
                 <!-- End Col -->
 
@@ -82,18 +85,15 @@
                             class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200">
                             Phone
                         </label>
-                        <span class="text-sm text-gray-400 dark:text-neutral-600">
-                            (Optional)
-                        </span>
                     </div>
                 </div>
                 <!-- End Col -->
 
                 <div class="sm:col-span-9">
                     <div class="sm:flex">
-                        <input id="af-account-phone" type="text" name="phone" required
+                        <input id="af-account-phone" type="text" name="phone" required value="{{old('phone')}}"
                             class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                            placeholder="+x(xxx)xxx-xx-xx">
+                            placeholder="Enter you Phone Number">
                     </div>
                 </div>
                 <!-- End Col -->
@@ -112,8 +112,9 @@
                 <div class="sm:col-span-9">
                     <div class="sm:flex">
                         <input id="af-account-full-position" type="text" name="position" required
+                            value="{{old('position')}}"
                             class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                            placeholder="Maria">
+                            placeholder="Enter you poisition (Running student/ Course Complete)">
                     </div>
                 </div>
                 <!-- End Col -->
@@ -129,14 +130,15 @@
                 <!-- End Col -->
 
                 <div class="sm:col-span-9">
-                    <div class="sm:flex">
-                        <input id="af-account-full-position" type="text" name="gender" required
-                            class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                            placeholder="Maria">
-                    </div>
+                    <select name="gender" id="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
+                        <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
+                        <option value="Other" {{ old('gender') == 'Other' ? 'selected' : '' }}>Other</option>
+                    </select>
                 </div>
                 <!-- End Col -->
- 
+
 
                 <div class="sm:col-span-3">
                     <label for="af-account-bio" class="inline-block text-sm text-gray-800 mt-2.5 dark:text-neutral-200">
@@ -148,7 +150,7 @@
                 <div class="sm:col-span-9">
                     <textarea id="af-account-bio" type="text" name="bio" required
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                        rows="6" placeholder="Type your message..."></textarea>
+                        rows="6" placeholder="Type your message Self...30 to 50 words"> {{old('bio')}} </textarea>
                 </div>
                 <!-- End Col -->
             </div>

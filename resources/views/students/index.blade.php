@@ -138,15 +138,21 @@
                                     <td class="size-px whitespace-nowrap">
                                         <div class="ps-6 lg:ps-3 xl:ps-0 pe-6 py-3">
                                             <div class="flex items-center gap-x-3">
-                                                <img class="inline-block size-[38px] rounded-full"
-                                                    src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                                                    alt="Avatar">
+                                                @if ($student->image)
+                                                    <img class="inline-block size-[38px] rounded-full"
+                                                        src=" {{asset('storage/' .$student->image)}} "
+                                                        alt="Profile Photo">
+                                                @else
+                                                    No Image
+                                                @endif
                                                 <div class="grow">
                                                     <span
                                                         class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">
                                                         {{$student->name}}</span>
                                                     <span
                                                         class="block text-sm text-gray-500 dark:text-neutral-500">{{$student->email}}</span>
+                                                    <span
+                                                        class="block text-sm text-gray-500 dark:text-neutral-500">{{$student->phone}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -155,12 +161,10 @@
                                         <div class="px-6 py-3">
                                             <span
                                                 class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$student->position}}</span>
-                                            <span class="block text-sm text-gray-500 dark:text-neutral-500">
-                                                {{$student->gender }} </span>
                                         </div>
                                     </td>
                                     <td class="h-px w-72 whitespace-nowrap">
-                                        <div class="px-6 py-3"> 
+                                        <div class="px-6 py-3">
                                             <span class="block text-sm text-gray-500 dark:text-neutral-500">
                                                 {{$student->gender }} </span>
                                         </div>
@@ -193,18 +197,20 @@
                                         </div>
                                     </td>
                                     <td class="size-px whitespace-nowrap  ">
-                                        <div class="flex" >
+                                        <div class="flex">
                                             <div class="px-6 py-1.5">
                                                 <a class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                                                    href=" ">
+                                                    href="{{route('students.edit', $student->id)}} ">
                                                     Edit
                                                 </a>
                                             </div>
                                             <div class="px-6 py-1.5">
-                                                <a class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                                                    href="">
-                                                    Delete
-                                                </a>
+                                                <form action="{{route('students.destroy', $student->id)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit">Delete</button>
+                                                </form>
+
                                             </div>
                                         </div>
                                     </td>

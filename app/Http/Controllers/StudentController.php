@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Storage;
 
 class StudentController extends Controller
 {
@@ -21,15 +22,30 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'image'=> 'nullable|image|mimes:jpeg,png,jep,gif|max:5120',
+            'name' => 'required|string|max:255',
             'email' => 'required|email|unique:students',
-            'phone' => 'required',
-            'position' => 'required',
-            'gender' => 'required',
-            'bio' => 'required', 
+            'phone' => 'required|string|max:11',
+            'position' => 'required|string|max:255',
+            'gender' => 'required| in:Male,Female,Other',
+            'bio' => 'required|string', 
         ]);
 
-        Student::create($request->all());
+        $imagePath = null;
+        if($request -> hasFile('image')){
+            $imagePath = $request -> file('image')->store('student_images', 'public');
+        }
+        
+        $student = Student::create([
+            'image'=> $imagePath,
+            'name'=> $request -> name,
+            'email'=> $request -> email,
+            'phone'=> $request -> phone,
+            'position' => $request -> position,
+            'gender'=> $request -> gender,
+            'bio'=>$request->bio,
+        ]);
+
         return redirect()->route('students.index')->with('success', 'Student added successfully.');
     }
 
@@ -46,13 +62,24 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
     {
         $request->validate([
-            'name' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'name' => 'required|string|max:255',
             'email' => 'required|email|unique:students,email,' . $student->id,
-            'phone' => 'required',
-            'department' => 'required',
+            'phone' => 'required|string|max:15',
+            'position' => 'required|string|max:255',
+            'gender' => 'required|in:Male,Female,Other',
+            'bio' => 'nullable|string',
         ]);
 
-        $student->update($request->all());
+        if ($request->hasFile('image')) {
+            if ($student->image) {
+                Storage::disk('public')->delete($student->image);
+            }
+            $student->image = $request->file('image')->store('students', 'public');
+        }
+
+        $student->update($request->only(['name', 'email', 'phone', 'position', 'gender', 'bio']));
+
         return redirect()->route('students.index')->with('success', 'Student updated successfully.');
     }
 
